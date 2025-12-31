@@ -17,7 +17,7 @@ const NobleLiving = () => {
   const [showUpgradePrompt, setShowUpgradePrompt] = useState(false);
   const [isFreeTier, setIsFreeTier] = useState(true); // Toggle this based on user auth
 
-  const MESSAGE_LIMIT = 5;
+  const MESSAGE_LIMIT = 3;
 
   const assessmentQuestions = [
     {
@@ -72,7 +72,7 @@ const NobleLiving = () => {
     }
   ];
 
-  // Noble Living Branded Worksheets
+  // Noble Living Branded Worksheets (3 Free)
   const worksheets = [
     {
       id: 1,
@@ -100,24 +100,6 @@ const NobleLiving = () => {
       time: "5-10 min daily",
       icon: BookOpen,
       color: "from-green-500 to-green-600"
-    },
-    {
-      id: 4,
-      title: "The Clarity Blueprint",
-      description: "Overcome confusion and decision paralysis with this visual mapping tool. Identify obstacles, clarify priorities, and chart your path forward.",
-      pages: 10,
-      time: "25-35 min",
-      icon: Sparkles,
-      color: "from-pink-500 to-pink-600"
-    },
-    {
-      id: 5,
-      title: "Values & Vision Alignment Guide",
-      description: "Ensure your daily actions align with your deepest values. Includes the Noble Living Values Assessment and vision board framework.",
-      pages: 14,
-      time: "40-50 min",
-      icon: Heart,
-      color: "from-orange-500 to-orange-600"
     }
   ];
 
@@ -327,7 +309,7 @@ const NobleLiving = () => {
         </div>
 
         <p className="text-gray-700 mb-4">
-          You've hit your 5 free messages for today, but honestly? We were just getting somewhere good!
+          You've hit your 3 free messages for today, but honestly? We were just getting somewhere good!
         </p>
 
         <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl p-6 mb-6">
@@ -403,7 +385,7 @@ const NobleLiving = () => {
           <div className="flex items-center justify-center mb-6">
             <Heart className="w-16 h-16 text-purple-600" />
           </div>
-          <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">My Story</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Our Story</h2>
           <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
             <p>
               Noble Living was born from personal experience—the kind of frustration that comes from feeling undervalued, underpaid, and unfulfilled in a corporate job that drains your spirit.
@@ -416,6 +398,27 @@ const NobleLiving = () => {
             </p>
             <p>
               I began doing more of what brought me alive. I baked. I taught. I helped others discover their own paths to fulfillment. And slowly, everything changed.
+            </p>
+            <p>
+              Now, Noble Living is my way of expanding that passion. It's for everyone who feels lost, stuck, or unfulfilled. Everyone seeking to live a meaningful, purposeful, impactful, and successful life.
+            </p>
+            <p className="text-xl font-semibold text-purple-600">
+              I built these tools and resources to make it easy for anyone to get help, find answers, access support, and discover a starting point to be self-sufficient and live their life with purpose—on purpose.
+            </p>
+            <p>
+              This is my story. And I'm here to help you write yours.
+            </p>
+            
+            {/* Signature */}
+            <div className="text-center mt-8 pt-6 border-t border-gray-200">
+              <p className="text-3xl font-signature italic text-purple-600 mb-2" style={{fontFamily: 'Brush Script MT, cursive'}}>
+                Genette
+              </p>
+              <p className="text-sm text-gray-600 uppercase tracking-wider">
+                Founder
+              </p>
+            </div>
+          </div>
             </p>
             <p>
               Now, Noble Living is my way of expanding that passion. It's for everyone who feels lost, stuck, or unfulfilled. Everyone seeking to live a meaningful, purposeful, impactful, and successful life.
@@ -513,15 +516,11 @@ const NobleLiving = () => {
               </li>
               <li className="flex items-start">
                 <Check className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-0.5" />
-                <span><strong>Your personal assistant</strong> (5 messages/day)</span>
+                <span><strong>Your personal assistant</strong> (3 messages/day)</span>
               </li>
               <li className="flex items-start">
                 <Check className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-0.5" />
-                <span>5 downloadable worksheets</span>
-              </li>
-              <li className="flex items-start">
-                <Check className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-0.5" />
-                <span>Weekly email check-ins</span>
+                <span>3 downloadable worksheets</span>
               </li>
             </ul>
             <button
@@ -556,19 +555,19 @@ const NobleLiving = () => {
               </li>
               <li className="flex items-start">
                 <Phone className="w-6 h-6 text-yellow-400 mr-3 flex-shrink-0 mt-0.5" />
-                <span><strong>Daily SMS accountability texts</strong> - "Did you finish that LLC paperwork?"</span>
+                <span><strong>Daily SMS accountability</strong> - Personalized to your goals</span>
               </li>
               <li className="flex items-start">
-                <Sparkles className="w-6 h-6 text-yellow-400 mr-3 flex-shrink-0 mt-0.5" />
-                <span><strong>Morning inspiration quotes</strong> (3x/week)</span>
+                <FileText className="w-6 h-6 text-yellow-400 mr-3 flex-shrink-0 mt-0.5" />
+                <span><strong>Resume builder</strong> - Create up to 5 resumes/month</span>
               </li>
               <li className="flex items-start">
                 <CheckSquare className="w-6 h-6 text-yellow-400 mr-3 flex-shrink-0 mt-0.5" />
-                <span><strong>Personalized progress tracker</strong> with timeline</span>
+                <span><strong>Progress dashboard</strong> - Track your journey</span>
               </li>
               <li className="flex items-start">
-                <Clock className="w-6 h-6 text-yellow-400 mr-3 flex-shrink-0 mt-0.5" />
-                <span><strong>Custom reminders</strong> - Daily or weekly, your choice</span>
+                <Award className="w-6 h-6 text-yellow-400 mr-3 flex-shrink-0 mt-0.5" />
+                <span><strong>Founders badge</strong> - Special community status</span>
               </li>
             </ul>
             <button
@@ -601,12 +600,12 @@ const NobleLiving = () => {
                 </tr>
                 <tr className="border-b border-gray-100">
                   <td className="py-4 px-4">Chat Messages</td>
-                  <td className="text-center py-4 px-4">5/day</td>
+                  <td className="text-center py-4 px-4">3/day</td>
                   <td className="text-center py-4 px-4 bg-purple-50 font-bold">Unlimited ♾️</td>
                 </tr>
                 <tr className="border-b border-gray-100">
                   <td className="py-4 px-4">Worksheets</td>
-                  <td className="text-center py-4 px-4">5 free</td>
+                  <td className="text-center py-4 px-4">3 free</td>
                   <td className="text-center py-4 px-4 bg-purple-50">All + future releases</td>
                 </tr>
                 <tr className="border-b border-gray-100">
@@ -918,8 +917,141 @@ const NobleLiving = () => {
     );
   }
 
+  const CareersPage = () => (
+    <div className="min-h-screen bg-white py-20">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <button
+          onClick={() => navigateTo('home')}
+          className="mb-6 text-purple-600 hover:text-purple-700 font-medium flex items-center"
+        >
+          ← Back to Home
+        </button>
+        
+        <h1 className="text-4xl font-bold text-gray-900 mb-8 text-center">Careers at Noble Living</h1>
+        
+        <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl p-12 text-center">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-full mb-6">
+            <Users className="w-10 h-10 text-purple-600" />
+          </div>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">No Positions Available Currently</h2>
+          <p className="text-lg text-gray-600 mb-8">
+            We're not hiring at the moment, but we're always looking for passionate people who want to help others discover their purpose.
+          </p>
+          <p className="text-gray-600">
+            Interested in joining our mission? Send your resume to{' '}
+            <a href="mailto:careers@nobleliving.com" className="text-purple-600 hover:text-purple-700 font-semibold">
+              careers@nobleliving.com
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+
+  const CommunityPage = () => (
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50 py-20">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <button
+          onClick={() => navigateTo('home')}
+          className="mb-6 text-purple-600 hover:text-purple-700 font-medium flex items-center"
+        >
+          ← Back to Home
+        </button>
+        
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full mb-6">
+            <Users className="w-10 h-10 text-white" />
+          </div>
+          <h1 className="text-5xl font-bold text-gray-900 mb-4">Community Coming Soon!</h1>
+          <p className="text-2xl text-gray-600">
+            We're building something special for you
+          </p>
+        </div>
+
+        <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 mb-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">What to Expect:</h2>
+          <div className="space-y-6">
+            <div className="flex items-start">
+              <Check className="w-6 h-6 text-green-600 mr-4 flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Connect with Purpose-Seekers</h3>
+                <p className="text-gray-600">Join others on the same journey - share wins, get support, find accountability partners.</p>
+              </div>
+            </div>
+            <div className="flex items-start">
+              <Check className="w-6 h-6 text-green-600 mr-4 flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Exclusive Events & Workshops</h3>
+                <p className="text-gray-600">Monthly live sessions, Q&As, and workshops to help you grow.</p>
+              </div>
+            </div>
+            <div className="flex items-start">
+              <Check className="w-6 h-6 text-green-600 mr-4 flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Share Your Story</h3>
+                <p className="text-gray-600">Inspire others by sharing your journey and celebrate wins together.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl shadow-xl p-8 md:p-12 text-white text-center">
+          <Award className="w-16 h-16 mx-auto mb-6" />
+          <h2 className="text-3xl font-bold mb-4">Be a Founding Member!</h2>
+          <p className="text-xl text-purple-100 mb-8">
+            Get notified when we launch and receive your exclusive <strong>Founders Badge</strong>!
+          </p>
+          
+          <div className="max-w-md mx-auto">
+            <h3 className="text-lg font-bold mb-4">Founders Get:</h3>
+            <ul className="text-left space-y-3 mb-8">
+              <li className="flex items-start">
+                <Check className="w-5 h-5 text-yellow-400 mr-3 flex-shrink-0 mt-0.5" />
+                <span>Special Founders badge</span>
+              </li>
+              <li className="flex items-start">
+                <Check className="w-5 h-5 text-yellow-400 mr-3 flex-shrink-0 mt-0.5" />
+                <span>Posts bumped to top of forums</span>
+              </li>
+              <li className="flex items-start">
+                <Check className="w-5 h-5 text-yellow-400 mr-3 flex-shrink-0 mt-0.5" />
+                <span>Early access to new features</span>
+              </li>
+              <li className="flex items-start">
+                <Check className="w-5 h-5 text-yellow-400 mr-3 flex-shrink-0 mt-0.5" />
+                <span>Premium members only!</span>
+              </li>
+            </ul>
+
+            <form onSubmit={handleEmailSubmit} className="flex flex-col sm:flex-row gap-3">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                required
+              />
+              <button 
+                type="submit"
+                className="px-6 py-3 bg-yellow-400 text-gray-900 rounded-lg font-semibold hover:bg-yellow-300 transition-all whitespace-nowrap"
+              >
+                Join Waitlist
+              </button>
+            </form>
+            <p className="text-purple-100 text-sm mt-4">
+              No spam. Just a heads up when we launch!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
   // Render different pages
   if (currentPage === 'about') return <AboutPage />;
+  if (currentPage === 'careers') return <CareersPage />;
+  if (currentPage === 'community') return <CommunityPage />;
   if (currentPage === 'privacy') return <PrivacyPage />;
   if (currentPage === 'terms') return <TermsPage />;
   if (currentPage === 'packages') return <PackagesPage />;
@@ -1203,12 +1335,7 @@ const NobleLiving = () => {
               <h4 className="font-bold mb-4">Company</h4>
               <ul className="space-y-2 text-gray-400">
                 <li><button onClick={() => navigateTo('about')} className="hover:text-white">About Us</button></li>
-                <li>
-                  <span className="inline-flex items-center">
-                    Careers
-                    <span className="ml-2 text-xs bg-yellow-500 text-gray-900 px-2 py-0.5 rounded-full">Coming Soon</span>
-                  </span>
-                </li>
+                <li><button onClick={() => navigateTo('careers')} className="hover:text-white">Careers</button></li>
                 <li><a href="mailto:support@nobleliving.com" className="hover:text-white">Contact</a></li>
               </ul>
             </div>
@@ -1216,12 +1343,7 @@ const NobleLiving = () => {
               <h4 className="font-bold mb-4">Resources</h4>
               <ul className="space-y-2 text-gray-400">
                 <li><a href="#resources" className="hover:text-white">Worksheets</a></li>
-                <li>
-                  <span className="inline-flex items-center">
-                    Community
-                    <span className="ml-2 text-xs bg-yellow-500 text-gray-900 px-2 py-0.5 rounded-full">Coming Soon</span>
-                  </span>
-                </li>
+                <li><button onClick={() => navigateTo('community')} className="hover:text-white">Community</button></li>
                 <li><button onClick={() => navigateTo('packages')} className="hover:text-white">Premium</button></li>
               </ul>
             </div>
