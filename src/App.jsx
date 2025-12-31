@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X, ChevronRight, Check, MapPin, BookOpen, Briefcase, Shield, AlertCircle } from 'lucide-react';
 
-// Florida Resources Database
 const floridaResources = {
   name: "Florida",
   sba: {
