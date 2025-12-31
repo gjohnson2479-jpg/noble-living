@@ -1076,10 +1076,175 @@ const NobleLiving = () => {
     </div>
   );
 
+  const StateResourcesPage = () => {
+    const [selectedState, setSelectedState] = useState('FL');
+    
+    const stateData = {
+      FL: {
+        name: "Florida",
+        cottageFoodLimit: "$250,000/year",
+        allowedFoods: "Baked goods, jams, jellies, dry mixes, candy, popcorn, granola",
+        requirements: "Food safety training, business tax receipt, proper labeling",
+        sbaPhone: "(305) 536-5521",
+        whyGreat: "No state income tax, business-friendly laws, large market, highest cottage food limits!"
+      },
+      CA: {
+        name: "California",
+        cottageFoodLimit: "$75,000/year (Class A) or Unlimited (Class B)",
+        allowedFoods: "Baked goods, candy, dried fruit, granola, nut butters",
+        requirements: "Register with health dept, food handler cert, proper labeling",
+        sbaPhone: "(415) 744-6820",
+        whyGreat: "Huge market, entrepreneurial culture, Class B allows wholesale sales!"
+      },
+      TX: {
+        name: "Texas",
+        cottageFoodLimit: "$50,000/year",
+        allowedFoods: "Baked goods, candy, coated nuts, fruit butters, dried herbs",
+        requirements: "Take cottage food course, proper labeling",
+        sbaPhone: "(713) 773-6500",
+        whyGreat: "No state income tax, low cost of living, very business-friendly!"
+      },
+      NY: {
+        name: "New York",
+        cottageFoodLimit: "$50,000/year",
+        allowedFoods: "Baked goods, candy, dried herbs, granola, popcorn",
+        requirements: "2-4 hour food safety course, register with Ag & Markets",
+        sbaPhone: "(212) 264-4354",
+        whyGreat: "Large affluent market, strong farmers market culture!"
+      },
+      GA: {
+        name: "Georgia",
+        cottageFoodLimit: "$50,000/year",
+        allowedFoods: "Baked goods, candy, dried herbs, jams, jellies, pickles",
+        requirements: "Register with Ag Department, proper labeling",
+        sbaPhone: "(404) 331-0100",
+        whyGreat: "Growing economy, lower cost of living, business-friendly!"
+      }
+    };
+
+    const opportunities = [
+      { title: "Cottage Food Business", cost: "$100-$500", earning: "$2K-$8K/mo", skills: "Cooking/Baking" },
+      { title: "Virtual Assistant", cost: "$50-$200", earning: "$2.5K-$6K/mo", skills: "Organization" },
+      { title: "Coaching/Consulting", cost: "$100-$1K", earning: "$3K-$15K/mo", skills: "Expertise" },
+      { title: "Handmade Crafts", cost: "$200-$1K", earning: "$1.5K-$5K/mo", skills: "Crafting" },
+      { title: "Social Media Management", cost: "$50-$300", earning: "$2K-$7K/mo", skills: "Marketing" },
+      { title: "Pet Care Services", cost: "$100-$500", earning: "$2K-$5K/mo", skills: "Animal Love" }
+    ];
+
+    const state = stateData[selectedState];
+
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-orange-50 py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <button
+            onClick={() => navigateTo('home')}
+            className="mb-6 text-emerald-600 hover:text-emerald-700 font-medium flex items-center"
+          >
+            ← Back to Home
+          </button>
+
+          <div className="text-center mb-12">
+            <h1 className="text-5xl font-bold text-gray-900 mb-4">State Resources</h1>
+            <p className="text-2xl text-gray-600">Turn your purpose into income with state-specific guidance</p>
+          </div>
+
+          {/* State Selector */}
+          <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Select Your State</h2>
+            <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
+              {Object.keys(stateData).map(code => (
+                <button
+                  key={code}
+                  onClick={() => setSelectedState(code)}
+                  className={`px-6 py-4 rounded-lg font-semibold transition-all ${
+                    selectedState === code
+                      ? 'bg-gradient-to-r from-emerald-600 to-orange-500 text-white shadow-lg'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  {stateData[code].name}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Cottage Food Laws */}
+          <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
+            <div className="flex items-center mb-6">
+              <Sparkles className="w-8 h-8 text-emerald-600 mr-3" />
+              <h2 className="text-3xl font-bold text-gray-900">Cottage Food Laws - {state.name}</h2>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-6 mb-6">
+              <div className="bg-emerald-50 rounded-xl p-6">
+                <h3 className="font-bold text-gray-900 mb-2">Revenue Limit</h3>
+                <p className="text-2xl font-bold text-emerald-600">{state.cottageFoodLimit}</p>
+              </div>
+              <div className="bg-orange-50 rounded-xl p-6">
+                <h3 className="font-bold text-gray-900 mb-2">SBA Office</h3>
+                <p className="text-lg font-semibold text-orange-600">{state.sbaPhone}</p>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">Allowed Foods</h3>
+                <p className="text-gray-700">{state.allowedFoods}</p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2">Requirements</h3>
+                <p className="text-gray-700">{state.requirements}</p>
+              </div>
+              <div className="bg-gradient-to-r from-emerald-600 to-orange-500 rounded-xl p-6 text-white">
+                <h3 className="font-bold mb-2">Why {state.name} is Great for Entrepreneurs</h3>
+                <p>{state.whyGreat}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Business Opportunities */}
+          <div className="bg-white rounded-2xl shadow-lg p-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Business Opportunities</h2>
+            <p className="text-gray-600 mb-8">Based on your purpose profile, here are businesses you can start in {state.name}:</p>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {opportunities.map((opp, index) => (
+                <div key={index} className="border-2 border-gray-200 rounded-xl p-6 hover:border-emerald-500 transition-all">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{opp.title}</h3>
+                  <div className="space-y-2 text-sm">
+                    <p className="text-gray-600"><strong>Startup:</strong> {opp.cost}</p>
+                    <p className="text-emerald-600"><strong>Earning:</strong> {opp.earning}</p>
+                    <p className="text-gray-600"><strong>Skills:</strong> {opp.skills}</p>
+                  </div>
+                  <button className="mt-4 w-full bg-emerald-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-emerald-700 transition-colors">
+                    Learn More
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="mt-12 text-center bg-gradient-to-r from-emerald-600 to-orange-500 rounded-2xl p-12 text-white">
+            <h2 className="text-3xl font-bold mb-4">Ready to Start Your Business?</h2>
+            <p className="text-xl mb-8">Upgrade to Premium for personalized step-by-step guidance!</p>
+            <button
+              onClick={() => navigateTo('packages')}
+              className="bg-white text-emerald-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors"
+            >
+              View Premium Plans
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   // Render different pages
   if (currentPage === 'about') return <AboutPage />;
   if (currentPage === 'careers') return <CareersPage />;
   if (currentPage === 'community') return <CommunityPage />;
+  if (currentPage === 'stateresources') return <StateResourcesPage />;
   if (currentPage === 'privacy') return <PrivacyPage />;
   if (currentPage === 'terms') return <TermsPage />;
   if (currentPage === 'packages') return <PackagesPage />;
@@ -1099,7 +1264,7 @@ const NobleLiving = () => {
             <div className="hidden md:flex items-center space-x-8">
               <button onClick={() => navigateTo('home')} className="text-gray-700 hover:text-emerald-600 font-medium">Home</button>
               <button onClick={() => navigateTo('about')} className="text-gray-700 hover:text-emerald-600 font-medium">About</button>
-              <a href="#resources" className="text-gray-700 hover:text-emerald-600 font-medium">Resources</a>
+              <button onClick={() => navigateTo('stateresources')} className="text-gray-700 hover:text-emerald-600 font-medium">State Resources</button>
               <button onClick={() => navigateTo('packages')} className="text-gray-700 hover:text-emerald-600 font-medium">Packages</button>
               <button
                 onClick={() => setShowAssessment(true)}
@@ -1123,7 +1288,7 @@ const NobleLiving = () => {
             <div className="px-4 py-4 space-y-3">
               <button onClick={() => navigateTo('home')} className="block w-full text-left text-gray-700 hover:text-emerald-600 font-medium">Home</button>
               <button onClick={() => navigateTo('about')} className="block w-full text-left text-gray-700 hover:text-emerald-600 font-medium">About</button>
-              <a href="#resources" className="block text-gray-700 hover:text-emerald-600 font-medium">Resources</a>
+              <button onClick={() => navigateTo('stateresources')} className="block w-full text-left text-gray-700 hover:text-emerald-600 font-medium">State Resources</button>
               <button onClick={() => navigateTo('packages')} className="block w-full text-left text-gray-700 hover:text-emerald-600 font-medium">Packages</button>
               <button
                 onClick={() => {
