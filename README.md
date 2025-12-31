@@ -1,150 +1,450 @@
-# Noble Living - Purpose Discovery Platform
+import React, { useState } from 'react';
+import { Menu, X, ChevronRight, Check, MapPin, BookOpen, Briefcase, Shield, AlertCircle } from 'lucide-react';
 
-A beautiful, modern web platform helping people discover and live their purpose.
+// Florida Resources Database
+const floridaResources = {
+  name: "Florida",
+  sba: {
+    office: "Florida SBDC Network",
+    description: "Free business consulting and low-cost training",
+    website: "https://www.sbdcflorida.org",
+    phone: "1-866-737-7232",
+    services: [
+      "One-on-one business consulting",
+      "Business plan development",
+      "Financial analysis and projections",
+      "Marketing assistance",
+      "Access to capital guidance"
+    ]
+  },
+  cottageFoodLaw: {
+    officialSource: "Florida Department of Agriculture - Division of Food Safety",
+    sourceUrl: "https://www.fdacs.gov/Food-Nutrition/Food-Safety/Cottage-Food-Operations",
+    enabled: true,
+    revenue_limit: "$250,000",
+    lastUpdated: "2024",
+    allowed_foods: [
+      "Breads, pastries, and baked goods (no cream, custard, or meat fillings)",
+      "Candy and confections",
+      "Dry baking mixes and herbs",
+      "Jams, jellies, and preserves",
+      "Dried fruits and vegetables",
+      "Popcorn, cereals, and trail mixes"
+    ],
+    prohibited_foods: [
+      "Foods requiring refrigeration",
+      "Canned goods (low-acid foods)",
+      "Pickled products",
+      "Meat, poultry, or seafood products",
+      "Dairy products (except some baked goods)",
+      "Pet food or treats"
+    ],
+    requirements: [
+      "Register with Florida Department of Agriculture ($50-$125 annually based on sales)",
+      "Complete food safety training (recommended)",
+      "Label must include: name/address, ingredients, allergens, and statement 'Made in a cottage food operation that is not subject to Florida's food safety regulations'",
+      "Sales must be direct to consumer (no wholesale to stores)",
+      "Food must be produced in your primary residence kitchen"
+    ],
+    registration_link: "https://www.fdacs.gov/Food-Nutrition/Food-Safety/Cottage-Food-Operations"
+  },
+  businessRegistration: {
+    step1: {
+      title: "Choose Business Structure",
+      description: "Most home businesses start as sole proprietorships or LLCs",
+      resource: "Florida Division of Corporations",
+      url: "https://dos.myflorida.com/sunbiz/"
+    },
+    step2: {
+      title: "Register Your Business Name",
+      description: "File with Florida Department of State (Sunbiz.org)",
+      cost: "LLC: $125 filing fee | DBA/Fictitious Name: $50",
+      url: "https://dos.myflorida.com/sunbiz/"
+    },
+    step3: {
+      title: "Get Your EIN (Federal Tax ID)",
+      description: "Free from IRS - needed for business banking and taxes",
+      url: "https://www.irs.gov/businesses/small-businesses-self-employed/apply-for-an-employer-identification-number-ein-online"
+    },
+    step4: {
+      title: "Get Local Business Tax Receipt",
+      description: "Previously called 'occupational license' - required by your county",
+      note: "Contact your County Tax Collector's office",
+      cost: "Varies by county ($30-$150 typically)"
+    },
+    step5: {
+      title: "Check Zoning Requirements",
+      description: "Verify your home business is allowed in your zoning area",
+      action: "Contact your city/county planning or zoning department"
+    }
+  },
+  usefulLinks: [
+    {
+      title: "Florida Small Business Development Center",
+      url: "https://www.sbdcflorida.org",
+      description: "Free consulting and training for FL businesses"
+    },
+    {
+      title: "Florida Department of State - Business Registration",
+      url: "https://dos.myflorida.com/sunbiz/",
+      description: "Register LLC, check business names"
+    },
+    {
+      title: "SCORE Tampa Bay",
+      url: "https://tampabay.score.org",
+      description: "Free mentoring from experienced business owners"
+    },
+    {
+      title: "IRS Small Business Resources",
+      url: "https://www.irs.gov/businesses/small-businesses-self-employed",
+      description: "Tax information and EIN application"
+    }
+  ]
+};
 
-## Features
+const assessmentQuestions = [
+  {
+    id: 1,
+    question: "What activities make you lose track of time?",
+    options: [
+      { id: 'a', text: "Creating or making things with my hands", skills: ['craft', 'food', 'art'] },
+      { id: 'b', text: "Helping or teaching others", skills: ['service', 'education', 'consulting'] },
+      { id: 'c', text: "Organizing and planning", skills: ['admin', 'event', 'consulting'] },
+      { id: 'd', text: "Working with technology or data", skills: ['digital', 'tech', 'consulting'] }
+    ]
+  },
+  {
+    id: 2,
+    question: "What resources do you already have?",
+    options: [
+      { id: 'a', text: "Kitchen and cooking skills", skills: ['food', 'catering'] },
+      { id: 'b', text: "Craft supplies or artistic abilities", skills: ['craft', 'art', 'design'] },
+      { id: 'c', text: "Professional expertise in a field", skills: ['consulting', 'education', 'service'] },
+      { id: 'd', text: "Digital skills or equipment", skills: ['digital', 'tech', 'design'] }
+    ]
+  },
+  {
+    id: 3,
+    question: "How much startup capital can you invest?",
+    options: [
+      { id: 'a', text: "Under $100", investment: 'minimal' },
+      { id: 'b', text: "$100-$500", investment: 'low' },
+      { id: 'c', text: "$500-$2000", investment: 'moderate' },
+      { id: 'd', text: "Over $2000", investment: 'substantial' }
+    ]
+  },
+  {
+    id: 4,
+    question: "How much time can you dedicate weekly?",
+    options: [
+      { id: 'a', text: "5-10 hours (side hustle)", commitment: 'part-time' },
+      { id: 'b', text: "10-20 hours", commitment: 'substantial' },
+      { id: 'c', text: "20-40 hours", commitment: 'full-time' },
+      { id: 'd', text: "40+ hours (full commitment)", commitment: 'dedicated' }
+    ]
+  },
+  {
+    id: 5,
+    question: "What's your primary motivation?",
+    options: [
+      { id: 'a', text: "Extra income while keeping my day job", goal: 'supplemental' },
+      { id: 'b', text: "Replace my current income eventually", goal: 'transition' },
+      { id: 'c', text: "Build wealth and scale a business", goal: 'growth' },
+      { id: 'd', text: "Make a difference while earning", goal: 'impact' }
+    ]
+  }
+];
 
-✅ Free 5-minute purpose assessment
-✅ Personalized purpose profiles
-✅ Resource library with free worksheets
-✅ Email capture for lead generation
-✅ Mobile-responsive design
-✅ Beautiful gradient UI with Tailwind CSS
+const floridaOpportunities = [
+  {
+    id: 1,
+    title: "Cottage Food Bakery",
+    category: "Food",
+    startup_cost: "$200-$500",
+    earning_potential: "$500-$3,000/month to start",
+    skills_match: ['food', 'craft'],
+    investment: 'low',
+    description: "Start a home-based baking business under Florida's Cottage Food Law. Sell baked goods at farmers markets, online, and direct to consumers.",
+    requirements: [
+      "Register with FL Dept of Agriculture ($50-125/year)",
+      "Basic baking equipment and ingredients",
+      "Food safety knowledge",
+      "Business Tax Receipt from county"
+    ],
+    steps: [
+      "Take food safety training course",
+      "Register as Cottage Food Operation with FDACS",
+      "Get Business Tax Receipt from County Tax Collector",
+      "Create 3-5 signature products to start",
+      "Design proper labels with required info",
+      "Set up direct sales channels (farmers markets, social media, word of mouth)"
+    ],
+    legal_notes: "Florida allows up to $250,000 in annual cottage food sales. Must sell directly to consumers - no wholesale to stores. Check zoning for home-based food business.",
+    resources: [
+      { name: "FL Cottage Food Registration", url: "https://www.fdacs.gov/Food-Nutrition/Food-Safety/Cottage-Food-Operations" },
+      { name: "Food Safety Training Options", url: "https://www.fdacs.gov/Food-Nutrition/Food-Safety/Training" }
+    ]
+  },
+  {
+    id: 2,
+    title: "Virtual Assistant Services",
+    category: "Digital",
+    startup_cost: "$0-$100",
+    earning_potential: "$1,500-$4,000/month part-time",
+    skills_match: ['admin', 'digital', 'service'],
+    investment: 'minimal',
+    description: "Provide remote administrative, scheduling, email management, or social media support to busy entrepreneurs and small businesses.",
+    requirements: [
+      "Computer and reliable internet",
+      "Professional email communication skills",
+      "Time management abilities",
+      "Business Tax Receipt"
+    ],
+    steps: [
+      "Define your services (admin, social media, customer service, etc.)",
+      "Register your business name (if using DBA)",
+      "Get Business Tax Receipt from your county",
+      "Create professional profiles (LinkedIn, Upwork, Fiverr)",
+      "Set your rates ($20-50/hour to start)",
+      "Network in Facebook groups and local business communities"
+    ],
+    legal_notes: "No special licenses required beyond standard business registration. Consider general liability insurance. Track all income for tax purposes.",
+    resources: [
+      { name: "SCORE Free Business Mentoring", url: "https://tampabay.score.org" },
+      { name: "FL Business Registration", url: "https://dos.myflorida.com/sunbiz/" }
+    ]
+  },
+  {
+    id: 3,
+    title: "Handmade Crafts & Products",
+    category: "Craft",
+    startup_cost: "$150-$800",
+    earning_potential: "$500-$2,500/month",
+    skills_match: ['craft', 'art', 'design'],
+    investment: 'low',
+    description: "Create and sell handmade items like jewelry, candles, soaps, artwork, or home decor through online platforms and local markets.",
+    requirements: [
+      "Craft materials and tools",
+      "Business Tax Receipt",
+      "Online store or market booth",
+      "Photography setup for product photos"
+    ],
+    steps: [
+      "Develop 10-20 products in your niche",
+      "Register business and get Tax Receipt",
+      "Set up Etsy shop or similar platform",
+      "Research local craft fairs and markets",
+      "Create social media presence (Instagram/Facebook)",
+      "Price products: materials + time + overhead + profit"
+    ],
+    legal_notes: "Business Tax Receipt required. Some products (soaps, cosmetics) may have FDA labeling requirements. Research safety standards for children's products if applicable.",
+    resources: [
+      { name: "Etsy Seller Handbook", url: "https://www.etsy.com/seller-handbook" },
+      { name: "FL Small Business Resources", url: "https://www.sbdcflorida.org" }
+    ]
+  },
+  {
+    id: 4,
+    title: "Freelance Consulting",
+    category: "Service",
+    startup_cost: "$0-$300",
+    earning_potential: "$2,000-$8,000/month",
+    skills_match: ['consulting', 'education', 'service'],
+    investment: 'minimal',
+    description: "Leverage your professional expertise in marketing, HR, finance, operations, or your field to consult with businesses needing your skills.",
+    requirements: [
+      "Professional experience in your field",
+      "Video meeting software (Zoom, Google Meet)",
+      "Professional online presence",
+      "Business registration"
+    ],
+    steps: [
+      "Identify your consulting niche and ideal client",
+      "Register business and get required licenses",
+      "Create service packages (hourly vs project-based)",
+      "Build LinkedIn profile showcasing expertise",
+      "Reach out to your network",
+      "Consider professional liability insurance"
+    ],
+    legal_notes: "Some consulting fields require professional licenses (accounting, legal, financial advice). Most general business consulting doesn't. Check if your specialty requires licensing.",
+    resources: [
+      { name: "Professional Licensing Search", url: "https://www.myfloridalicense.com/dbpr/" },
+      { name: "SBDC Consulting Help", url: "https://www.sbdcflorida.org" }
+    ]
+  },
+  {
+    id: 5,
+    title: "Pet Care Services",
+    category: "Service",
+    startup_cost: "$100-$500",
+    earning_potential: "$1,000-$3,500/month part-time",
+    skills_match: ['service', 'care'],
+    investment: 'low',
+    description: "Offer dog walking, pet sitting, or basic grooming services in your local area. Great for animal lovers looking for flexible income.",
+    requirements: [
+      "Reliable transportation",
+      "Pet care knowledge and experience",
+      "Liability insurance (highly recommended)",
+      "Business Tax Receipt"
+    ],
+    steps: [
+      "Get business registration and Tax Receipt",
+      "Purchase liability insurance ($300-500/year)",
+      "Create profiles on Rover, Wag, or local pet care platforms",
+      "Set service area and rates",
+      "Build reviews through friends/family first",
+      "Consider pet first aid certification"
+    ],
+    legal_notes: "Business Tax Receipt required. Liability insurance is essential - covers injuries to pets or property damage. Check HOA rules if working from home.",
+    resources: [
+      { name: "Pet Sitters Associates (Insurance)", url: "https://www.petsitllc.com" },
+      { name: "Red Cross Pet First Aid", url: "https://www.redcross.org/take-a-class/cpr" }
+    ]
+  },
+  {
+    id: 6,
+    title: "Home Cleaning Services",
+    category: "Service",
+    startup_cost: "$150-$400",
+    earning_potential: "$1,500-$4,000/month",
+    skills_match: ['service'],
+    investment: 'low',
+    description: "Provide residential or small office cleaning services. Recurring revenue model with clients booking weekly or bi-weekly cleanings.",
+    requirements: [
+      "Basic cleaning supplies and equipment",
+      "Transportation",
+      "Liability insurance",
+      "Business Tax Receipt"
+    ],
+    steps: [
+      "Register business and get Tax Receipt",
+      "Purchase liability insurance",
+      "Invest in quality cleaning supplies",
+      "Set pricing (by hour or by square foot)",
+      "Market through Nextdoor, Facebook groups, flyers",
+      "Offer first-time discounts to build client base"
+    ],
+    legal_notes: "Business Tax Receipt required. Must have liability insurance. Consider bonding (protection against theft claims) to build trust with clients.",
+    resources: [
+      { name: "Small Business Insurance Guide", url: "https://www.sba.gov/business-guide/launch-your-business/get-business-insurance" },
+      { name: "FL Business Registration", url: "https://dos.myflorida.com/sunbiz/" }
+    ]
+  }
+];
 
-## Tech Stack
+const App = () => {
+  const [currentPage, setCurrentPage] = useState('home');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [assessmentStep, setAssessmentStep] = useState(0);
+  const [assessmentAnswers, setAssessmentAnswers] = useState({});
+  const [assessmentComplete, setAssessmentComplete] = useState(false);
+  const [userProfile, setUserProfile] = useState(null);
+  const [filterCategory, setFilterCategory] = useState('all');
 
-- React 18
-- Vite (super fast build tool)
-- Tailwind CSS
-- Lucide React Icons
+  const handleAssessmentAnswer = (questionId, answer) => {
+    const newAnswers = { ...assessmentAnswers, [questionId]: answer };
+    setAssessmentAnswers(newAnswers);
+    
+    if (assessmentStep < assessmentQuestions.length - 1) {
+      setAssessmentStep(assessmentStep + 1);
+    } else {
+      const skills = [];
+      const profile = {
+        investment: 'minimal',
+        commitment: 'part-time',
+        goal: 'supplemental'
+      };
 
-## Quick Start (Local Development)
+      Object.values(newAnswers).forEach(answer => {
+        if (answer.skills) skills.push(...answer.skills);
+        if (answer.investment) profile.investment = answer.investment;
+        if (answer.commitment) profile.commitment = answer.commitment;
+        if (answer.goal) profile.goal = answer.goal;
+      });
 
-```bash
-# Install dependencies
-npm install
+      profile.topSkills = [...new Set(skills)].slice(0, 3);
+      setUserProfile(profile);
+      setAssessmentComplete(true);
+    }
+  };
 
-# Run development server
-npm run dev
+  const getMatchedOpportunities = () => {
+    if (!userProfile) return floridaOpportunities;
+    
+    return floridaOpportunities
+      .filter(opp => {
+        if (filterCategory !== 'all' && opp.category.toLowerCase() !== filterCategory) return false;
+        return opp.skills_match.some(skill => userProfile.topSkills.includes(skill));
+      })
+      .sort((a, b) => {
+        const aMatch = a.skills_match.filter(s => userProfile.topSkills.includes(s)).length;
+        const bMatch = b.skills_match.filter(s => userProfile.topSkills.includes(s)).length;
+        return bMatch - aMatch;
+      });
+  };
 
-# Build for production
-npm run build
-```
+  const renderNavbar = () => (
+    <nav className="bg-slate-900 border-b border-slate-800">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          <div className="flex items-center gap-2 cursor-pointer" onClick={() => setCurrentPage('home')}>
+            <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-xl">NL</span>
+            </div>
+            <span className="text-white font-bold text-xl">Noble Living</span>
+          </div>
+          
+          <div className="hidden md:flex items-center gap-6">
+            <button onClick={() => setCurrentPage('home')} className="text-slate-300 hover:text-emerald-400 transition-colors">Home</button>
+            <button onClick={() => setCurrentPage('assessment')} className="text-slate-300 hover:text-emerald-400 transition-colors">Assessment</button>
+            <button onClick={() => setCurrentPage('opportunities')} className="text-slate-300 hover:text-emerald-400 transition-colors">Opportunities</button>
+            <button onClick={() => setCurrentPage('resources')} className="text-slate-300 hover:text-emerald-400 transition-colors">FL Resources</button>
+            <button onClick={() => setCurrentPage('legal')} className="text-slate-300 hover:text-emerald-400 transition-colors flex items-center gap-1">
+              <Shield size={16} />
+              Legal
+            </button>
+          </div>
+          
+          <button className="md:hidden text-white" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      </div>
+      
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-slate-800 border-t border-slate-700">
+          <div className="px-4 py-3 space-y-3">
+            <button onClick={() => { setCurrentPage('home'); setMobileMenuOpen(false); }} className="block w-full text-left text-slate-300 hover:text-emerald-400 py-2">Home</button>
+            <button onClick={() => { setCurrentPage('assessment'); setMobileMenuOpen(false); }} className="block w-full text-left text-slate-300 hover:text-emerald-400 py-2">Assessment</button>
+            <button onClick={() => { setCurrentPage('opportunities'); setMobileMenuOpen(false); }} className="block w-full text-left text-slate-300 hover:text-emerald-400 py-2">Opportunities</button>
+            <button onClick={() => { setCurrentPage('resources'); setMobileMenuOpen(false); }} className="block w-full text-left text-slate-300 hover:text-emerald-400 py-2">FL Resources</button>
+            <button onClick={() => { setCurrentPage('legal'); setMobileMenuOpen(false); }} className="block w-full text-left text-slate-300 hover:text-emerald-400 py-2">Legal</button>
+          </div>
+        </div>
+      )}
+    </nav>
+  );
 
-## Deploy to Vercel (FREE)
+  const renderHome = () => (
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-emerald-900 to-slate-900">
+      <div className="bg-coral-500/10 border-b border-coral-500/20 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center gap-2 text-orange-100 text-sm">
+          <AlertCircle size={18} className="flex-shrink-0" />
+          <p>
+            <strong>Educational Resource:</strong> This platform provides general information about starting a home business in Florida. 
+            Always verify current laws and consult with professionals for legal, tax, or financial advice.
+          </p>
+        </div>
+      </div>
 
-### Option 1: Deploy with GitHub (Recommended)
-
-1. Create a GitHub account if you don't have one
-2. Create a new repository on GitHub
-3. Push this code to GitHub:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git branch -M main
-   git remote add origin YOUR_GITHUB_REPO_URL
-   git push -u origin main
-   ```
-4. Go to vercel.com and sign in with GitHub
-5. Click "New Project"
-6. Import your GitHub repository
-7. Vercel will auto-detect it's a Vite app
-8. Click "Deploy"
-9. Done! Your site is live in 2 minutes
-
-### Option 2: Deploy without GitHub
-
-1. Go to vercel.com and create an account
-2. Install Vercel CLI: `npm install -g vercel`
-3. In this folder, run: `vercel`
-4. Follow the prompts
-5. Run: `vercel --prod` to deploy to production
-6. Done!
-
-## Connect Your Domain (joinnobleliving.com)
-
-After deploying to Vercel:
-
-1. In Vercel dashboard, go to your project
-2. Click "Settings" → "Domains"
-3. Click "Add Domain"
-4. Type: `joinnobleliving.com`
-5. Vercel will show you DNS records to add
-6. You already added these to Namecheap! Just wait 5-60 minutes for DNS to propagate
-7. Your site will be live at joinnobleliving.com
-
-## Project Structure
-
-```
-noble-living/
-├── src/
-│   ├── App.jsx          # Main application component
-│   ├── main.jsx         # Entry point
-│   └── index.css        # Global styles
-├── index.html           # HTML template
-├── package.json         # Dependencies
-├── vite.config.js       # Vite configuration
-├── tailwind.config.js   # Tailwind configuration
-└── postcss.config.js    # PostCSS configuration
-```
-
-## Features Breakdown
-
-### 1. Landing Page
-- Hero section with call-to-action
-- Features showcase
-- Social proof (stats)
-- Free resources section
-- Email capture form
-
-### 2. Purpose Assessment
-- 5 carefully crafted questions
-- Progress indicator
-- Beautiful UI with animations
-- Instant results
-
-### 3. Results Page
-- 4 unique purpose profiles:
-  - The Servant Leader
-  - The Creator
-  - The Teacher
-  - The Visionary
-- Personalized strengths
-- Actionable next steps
-- Email capture for worksheet
-
-### 4. Responsive Design
-- Mobile-first approach
-- Works on all devices
-- Beautiful gradients
-- Smooth animations
-
-## Next Steps After Launch
-
-1. **Add Analytics**
-   - Google Analytics
-   - Vercel Analytics (built-in)
-
-2. **Connect Email Service**
-   - SendGrid for automated emails
-   - Mailchimp for newsletters
-
-3. **Add Payment Processing**
-   - Stripe for courses/coaching
-   - Gumroad for digital products
-
-4. **Build Backend** (Optional)
-   - Supabase for database
-   - Save assessment results
-   - User accounts
-
-## Support
-
-Questions? Issues?
-- Email: support@nobleliving.com (update this!)
-- Or create an issue on GitHub
-
-## License
-
-© 2024 Noble Living. All rights reserved.
+      <div className="relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <div className="text-center">
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
+              Start Your Florida
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-emerald-300">
+                Home Business Journey
+              </span>
+            </h1>
+            <p className="text-xl md:text-2xl text-emerald-100 mb-8 max-w-3xl mx-auto leading-relaxed">
+              Discover legitimate home-based business opportunities with resources tailored specifically to Florida entrepreneu
