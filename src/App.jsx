@@ -81,7 +81,7 @@ const NobleLiving = () => {
       pages: 15,
       time: "30-45 min",
       icon: Compass,
-      color: "from-purple-500 to-purple-600"
+      color: "from-emerald-500 to-emerald-600"
     },
     {
       id: 2,
@@ -90,7 +90,7 @@ const NobleLiving = () => {
       pages: 12,
       time: "20-30 min",
       icon: Target,
-      color: "from-blue-500 to-blue-600"
+      color: "from-orange-400 to-orange-500"
     },
     {
       id: 3,
@@ -312,7 +312,7 @@ const NobleLiving = () => {
           You've hit your 3 free messages for today, but honestly? We were just getting somewhere good!
         </p>
 
-        <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl p-6 mb-6">
+        <div className="bg-gradient-to-br from-emerald-50 to-orange-50 rounded-xl p-6 mb-6">
           <h4 className="font-bold text-gray-900 mb-3">Here's the deal with Premium ($14.99/month):</h4>
           <ul className="space-y-2 text-gray-700">
             <li className="flex items-start">
@@ -344,7 +344,7 @@ const NobleLiving = () => {
               setShowUpgradePrompt(false);
               navigateTo('packages');
             }}
-            className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-shadow"
+            className="w-full bg-gradient-to-r from-emerald-600 to-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-shadow"
           >
             Yeah, Let's Do This!
           </button>
@@ -367,12 +367,19 @@ const NobleLiving = () => {
   const AboutPage = () => (
     <div className="min-h-screen bg-white py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <button
+          onClick={() => navigateTo('home')}
+          className="mb-6 text-emerald-600 hover:text-emerald-700 font-medium flex items-center"
+        >
+          ← Back to Home
+        </button>
+        
         <h1 className="text-5xl font-bold text-gray-900 mb-8 text-center">About Noble Living</h1>
         
         {/* HeyGen Video Placeholder */}
         <div className="mb-12">
-          <div className="bg-gradient-to-br from-purple-100 to-blue-100 rounded-2xl p-8 text-center">
-            <Play className="w-16 h-16 text-purple-600 mx-auto mb-4" />
+          <div className="bg-gradient-to-br from-emerald-100 to-orange-100 rounded-2xl p-8 text-center">
+            <Play className="w-16 h-16 text-emerald-600 mx-auto mb-4" />
             <p className="text-gray-700 font-medium mb-4">Watch My Story (HeyGen Video)</p>
             <p className="text-sm text-gray-600">
               Add your HeyGen embed code here
@@ -381,9 +388,9 @@ const NobleLiving = () => {
           </div>
         </div>
         
-        <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl p-8 md:p-12 mb-12">
+        <div className="bg-gradient-to-br from-emerald-50 to-orange-50 rounded-2xl p-8 md:p-12 mb-12">
           <div className="flex items-center justify-center mb-6">
-            <Heart className="w-16 h-16 text-purple-600" />
+            <Heart className="w-16 h-16 text-emerald-600" />
           </div>
           <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Our Story</h2>
           <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
@@ -402,7 +409,7 @@ const NobleLiving = () => {
             <p>
               Now, Noble Living is my way of expanding that passion. It's for everyone who feels lost, stuck, or unfulfilled. Everyone seeking to live a meaningful, purposeful, impactful, and successful life.
             </p>
-            <p className="text-xl font-semibold text-purple-600">
+            <p className="text-xl font-semibold text-emerald-600">
               I built these tools and resources to make it easy for anyone to get help, find answers, access support, and discover a starting point to be self-sufficient and live their life with purpose—on purpose.
             </p>
             <p>
@@ -411,7 +418,7 @@ const NobleLiving = () => {
             
             {/* Signature */}
             <div className="text-center mt-8 pt-6 border-t border-gray-200">
-              <p className="text-3xl font-signature italic text-purple-600 mb-2" style={{fontFamily: 'Brush Script MT, cursive'}}>
+              <p className="text-3xl font-signature italic text-emerald-600 mb-2" style={{fontFamily: 'Brush Script MT, cursive'}}>
                 Genette
               </p>
               <p className="text-sm text-gray-600 uppercase tracking-wider">
@@ -423,7 +430,7 @@ const NobleLiving = () => {
             <p>
               Now, Noble Living is my way of expanding that passion. It's for everyone who feels lost, stuck, or unfulfilled. Everyone seeking to live a meaningful, purposeful, impactful, and successful life.
             </p>
-            <p className="text-xl font-semibold text-purple-600">
+            <p className="text-xl font-semibold text-emerald-600">
               I built these tools and resources to make it easy for anyone to get help, find answers, access support, and discover a starting point to be self-sufficient and live their life with purpose—on purpose.
             </p>
             <p>
@@ -434,8 +441,8 @@ const NobleLiving = () => {
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           <div className="text-center">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-100 rounded-full mb-4">
-              <Target className="w-8 h-8 text-purple-600" />
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-emerald-100 rounded-full mb-4">
+              <Target className="w-8 h-8 text-emerald-600" />
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-2">Our Mission</h3>
             <p className="text-gray-600">
@@ -443,8 +450,8 @@ const NobleLiving = () => {
             </p>
           </div>
           <div className="text-center">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-              <Users className="w-8 h-8 text-blue-600" />
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full mb-4">
+              <Users className="w-8 h-8 text-orange-500" />
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-2">Our Community</h3>
             <p className="text-gray-600">
@@ -465,7 +472,7 @@ const NobleLiving = () => {
         <div className="text-center">
           <button
             onClick={() => navigateTo('home')}
-            className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-xl transition-shadow inline-flex items-center"
+            className="bg-gradient-to-r from-emerald-600 to-orange-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-xl transition-shadow inline-flex items-center"
           >
             Start Your Journey
             <ArrowRight className="w-5 h-5 ml-2" />
@@ -476,10 +483,17 @@ const NobleLiving = () => {
   );
 
   const PackagesPage = () => (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50 py-20">
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-orange-50 py-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <button
+          onClick={() => navigateTo('home')}
+          className="mb-6 text-emerald-600 hover:text-emerald-700 font-medium flex items-center"
+        >
+          ← Back to Home
+        </button>
+        
         <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full mb-6">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-emerald-600 to-orange-500 rounded-full mb-6">
             <Zap className="w-10 h-10 text-white" />
           </div>
           <h1 className="text-5xl font-bold text-gray-900 mb-4">Choose Your Path</h1>
@@ -489,7 +503,7 @@ const NobleLiving = () => {
         {/* HeyGen Video Placeholder */}
         <div className="max-w-3xl mx-auto mb-12">
           <div className="bg-white rounded-2xl p-8 shadow-lg text-center">
-            <Play className="w-12 h-12 text-purple-600 mx-auto mb-4" />
+            <Play className="w-12 h-12 text-emerald-600 mx-auto mb-4" />
             <p className="text-gray-700 font-medium mb-2">How to Choose Your Package (HeyGen Video)</p>
             <p className="text-sm text-gray-600">
               Add your HeyGen embed code here
@@ -525,14 +539,14 @@ const NobleLiving = () => {
             </ul>
             <button
               onClick={() => navigateTo('home')}
-              className="w-full border-2 border-purple-600 text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-purple-50 transition-colors"
+              className="w-full border-2 border-emerald-600 text-emerald-600 px-6 py-3 rounded-lg font-semibold hover:bg-emerald-50 transition-colors"
             >
               Get Started Free
             </button>
           </div>
 
           {/* Premium Package */}
-          <div className="bg-gradient-to-br from-purple-600 to-blue-600 rounded-2xl shadow-2xl p-8 text-white relative transform scale-105">
+          <div className="bg-gradient-to-br from-emerald-600 to-orange-500 rounded-2xl shadow-2xl p-8 text-white relative transform scale-105">
             <div className="absolute -top-4 right-8 bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-bold">
               MOST POPULAR
             </div>
@@ -542,8 +556,8 @@ const NobleLiving = () => {
                 Purpose Builder
               </span>
             </div>
-            <div className="text-4xl font-bold mb-6">$14.99<span className="text-lg text-purple-200">/month</span></div>
-            <p className="text-purple-100 mb-6">For those ready to take real action and stay accountable</p>
+            <div className="text-4xl font-bold mb-6">$14.99<span className="text-lg text-emerald-200">/month</span></div>
+            <p className="text-emerald-100 mb-6">For those ready to take real action and stay accountable</p>
             <ul className="space-y-4 mb-8">
               <li className="flex items-start">
                 <Check className="w-6 h-6 text-yellow-400 mr-3 flex-shrink-0 mt-0.5" />
@@ -571,12 +585,12 @@ const NobleLiving = () => {
               </li>
             </ul>
             <button
-              className="w-full bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-purple-50 transition-colors mb-4"
+              className="w-full bg-white text-emerald-600 px-6 py-3 rounded-lg font-semibold hover:bg-emerald-50 transition-colors mb-4"
               onClick={() => alert('Stripe payment integration coming soon! Email premium@nobleliving.com to join the waitlist.')}
             >
               Upgrade to Premium
             </button>
-            <p className="text-center text-purple-200 text-sm">Cancel anytime • 7-day money-back guarantee</p>
+            <p className="text-center text-emerald-200 text-sm">Cancel anytime • No refunds</p>
           </div>
         </div>
 
@@ -589,44 +603,44 @@ const NobleLiving = () => {
                 <tr className="border-b-2 border-gray-200">
                   <th className="text-left py-4 px-4">Feature</th>
                   <th className="text-center py-4 px-4">Free</th>
-                  <th className="text-center py-4 px-4 bg-purple-50 rounded-t-lg">Premium</th>
+                  <th className="text-center py-4 px-4 bg-emerald-50 rounded-t-lg">Premium</th>
                 </tr>
               </thead>
               <tbody className="text-gray-700">
                 <tr className="border-b border-gray-100">
                   <td className="py-4 px-4">Purpose Assessment</td>
                   <td className="text-center py-4 px-4"><Check className="w-5 h-5 text-green-600 mx-auto" /></td>
-                  <td className="text-center py-4 px-4 bg-purple-50"><Check className="w-5 h-5 text-green-600 mx-auto" /></td>
+                  <td className="text-center py-4 px-4 bg-emerald-50"><Check className="w-5 h-5 text-green-600 mx-auto" /></td>
                 </tr>
                 <tr className="border-b border-gray-100">
                   <td className="py-4 px-4">Chat Messages</td>
                   <td className="text-center py-4 px-4">3/day</td>
-                  <td className="text-center py-4 px-4 bg-purple-50 font-bold">Unlimited ♾️</td>
+                  <td className="text-center py-4 px-4 bg-emerald-50 font-bold">Unlimited ♾️</td>
                 </tr>
                 <tr className="border-b border-gray-100">
                   <td className="py-4 px-4">Worksheets</td>
                   <td className="text-center py-4 px-4">3 free</td>
-                  <td className="text-center py-4 px-4 bg-purple-50">All + future releases</td>
+                  <td className="text-center py-4 px-4 bg-emerald-50">All + future releases</td>
                 </tr>
                 <tr className="border-b border-gray-100">
                   <td className="py-4 px-4">SMS Accountability</td>
                   <td className="text-center py-4 px-4"><X className="w-5 h-5 text-gray-300 mx-auto" /></td>
-                  <td className="text-center py-4 px-4 bg-purple-50"><Check className="w-5 h-5 text-green-600 mx-auto" /></td>
+                  <td className="text-center py-4 px-4 bg-emerald-50"><Check className="w-5 h-5 text-green-600 mx-auto" /></td>
                 </tr>
                 <tr className="border-b border-gray-100">
                   <td className="py-4 px-4">Progress Tracking</td>
                   <td className="text-center py-4 px-4"><X className="w-5 h-5 text-gray-300 mx-auto" /></td>
-                  <td className="text-center py-4 px-4 bg-purple-50"><Check className="w-5 h-5 text-green-600 mx-auto" /></td>
+                  <td className="text-center py-4 px-4 bg-emerald-50"><Check className="w-5 h-5 text-green-600 mx-auto" /></td>
                 </tr>
                 <tr className="border-b border-gray-100">
                   <td className="py-4 px-4">Custom Reminders</td>
                   <td className="text-center py-4 px-4"><X className="w-5 h-5 text-gray-300 mx-auto" /></td>
-                  <td className="text-center py-4 px-4 bg-purple-50"><Check className="w-5 h-5 text-green-600 mx-auto" /></td>
+                  <td className="text-center py-4 px-4 bg-emerald-50"><Check className="w-5 h-5 text-green-600 mx-auto" /></td>
                 </tr>
                 <tr>
                   <td className="py-4 px-4">Support</td>
                   <td className="text-center py-4 px-4">Email</td>
-                  <td className="text-center py-4 px-4 bg-purple-50 rounded-b-lg">Priority</td>
+                  <td className="text-center py-4 px-4 bg-emerald-50 rounded-b-lg">Priority</td>
                 </tr>
               </tbody>
             </table>
@@ -638,11 +652,11 @@ const NobleLiving = () => {
           <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">See Premium in Action</h3>
           <p className="text-center text-gray-600 mb-8">Real examples of the accountability texts you'll receive</p>
           <div className="max-w-md mx-auto space-y-4">
-            <div className="bg-blue-50 rounded-lg p-4 border-l-4 border-blue-600">
+            <div className="bg-orange-50 rounded-lg p-4 border-l-4 border-orange-500">
               <p className="text-sm text-gray-600 mb-1">Monday 9:00 AM</p>
               <p className="text-gray-900">"Good morning! Today's the day to tackle your LLC paperwork. It only takes 15 minutes. You've got this! 💪"</p>
             </div>
-            <div className="bg-purple-50 rounded-lg p-4 border-l-4 border-purple-600">
+            <div className="bg-emerald-50 rounded-lg p-4 border-l-4 border-emerald-600">
               <p className="text-sm text-gray-600 mb-1">Wednesday 8:00 AM</p>
               <p className="text-gray-900">"Hey! Did you finish the LLC forms? Don't forget - once that's done, you're officially an LLC and on to the next step! 🎉"</p>
             </div>
@@ -659,6 +673,13 @@ const NobleLiving = () => {
   const PrivacyPage = () => (
     <div className="min-h-screen bg-white py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <button
+          onClick={() => navigateTo('home')}
+          className="mb-6 text-emerald-600 hover:text-emerald-700 font-medium flex items-center"
+        >
+          ← Back to Home
+        </button>
+        
         <h1 className="text-4xl font-bold text-gray-900 mb-8">Privacy Policy</h1>
         <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
           <p className="text-sm text-gray-500">Last Updated: December 30, 2024</p>
@@ -704,7 +725,7 @@ const NobleLiving = () => {
           <p>We implement appropriate security measures to protect your personal information. However, no method of transmission over the Internet is 100% secure.</p>
 
           <h2 className="text-2xl font-bold text-gray-900 mt-8">6. Contact Us</h2>
-          <p>For privacy questions, contact us at: privacy@nobleliving.com</p>
+          <p>For privacy questions, contact us at: support@nobleliving.com</p>
         </div>
       </div>
     </div>
@@ -713,6 +734,13 @@ const NobleLiving = () => {
   const TermsPage = () => (
     <div className="min-h-screen bg-white py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <button
+          onClick={() => navigateTo('home')}
+          className="mb-6 text-emerald-600 hover:text-emerald-700 font-medium flex items-center"
+        >
+          ← Back to Home
+        </button>
+        
         <h1 className="text-4xl font-bold text-gray-900 mb-8">Terms of Service</h1>
         <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
           <p className="text-sm text-gray-500">Last Updated: December 30, 2024</p>
@@ -757,7 +785,7 @@ const NobleLiving = () => {
           </ul>
 
           <h2 className="text-2xl font-bold text-gray-900 mt-8">5. Premium Services</h2>
-          <p>Premium SMS Accountability services are billed monthly at $14.99/month. You may cancel anytime. Refunds are provided within 7 days of initial purchase only.</p>
+          <p>Premium SMS Accountability services are billed monthly at $14.99/month. You may cancel anytime. All sales are final - no refunds.</p>
 
           <h2 className="text-2xl font-bold text-gray-900 mt-8">6. Intellectual Property</h2>
           <p>All content, including worksheets, assessments, and assistant responses, are owned by Noble Living and protected by copyright law.</p>
@@ -766,7 +794,7 @@ const NobleLiving = () => {
           <p>Noble Living is provided "as is" without warranties. We are not liable for any damages arising from your use of the service.</p>
 
           <h2 className="text-2xl font-bold text-gray-900 mt-8">8. Contact</h2>
-          <p>For questions about these terms, contact: legal@nobleliving.com</p>
+          <p>For questions about these terms, contact: support@nobleliving.com</p>
         </div>
       </div>
     </div>
@@ -775,12 +803,12 @@ const NobleLiving = () => {
   // Assessment and Results (keeping existing code with updated language)
   if (showAssessment && !showResults) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50">
+      <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-orange-50">
         <div className="max-w-3xl mx-auto px-4 py-16">
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
             <div className="mb-8">
               <div className="flex justify-between items-center mb-4">
-                <span className="text-sm font-semibold text-purple-600">
+                <span className="text-sm font-semibold text-emerald-600">
                   Question {currentQuestion + 1} of {assessmentQuestions.length}
                 </span>
                 <button 
@@ -792,7 +820,7 @@ const NobleLiving = () => {
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2 mb-6">
                 <div 
-                  className="bg-gradient-to-r from-purple-600 to-blue-600 h-2 rounded-full transition-all duration-300"
+                  className="bg-gradient-to-r from-emerald-600 to-orange-500 h-2 rounded-full transition-all duration-300"
                   style={{ width: `${((currentQuestion + 1) / assessmentQuestions.length) * 100}%` }}
                 />
               </div>
@@ -807,13 +835,13 @@ const NobleLiving = () => {
                 <button
                   key={index}
                   onClick={() => handleAnswer(option)}
-                  className="w-full text-left p-6 border-2 border-gray-200 rounded-xl hover:border-purple-500 hover:bg-purple-50 transition-all duration-200 group"
+                  className="w-full text-left p-6 border-2 border-gray-200 rounded-xl hover:border-emerald-500 hover:bg-emerald-50 transition-all duration-200 group"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-lg font-medium text-gray-900 group-hover:text-purple-600">
+                    <span className="text-lg font-medium text-gray-900 group-hover:text-emerald-600">
                       {option.text}
                     </span>
-                    <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-purple-600" />
+                    <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-emerald-600" />
                   </div>
                 </button>
               ))}
@@ -827,17 +855,17 @@ const NobleLiving = () => {
   if (showResults) {
     const result = purposeProfiles[showResults];
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50">
+      <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-orange-50">
         <div className="max-w-4xl mx-auto px-4 py-16">
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
             <div className="text-center mb-8">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full mb-6">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-emerald-600 to-orange-500 rounded-full mb-6">
                 <Sparkles className="w-10 h-10 text-white" />
               </div>
               <h2 className="text-4xl font-bold text-gray-900 mb-4">
                 Your Purpose Profile
               </h2>
-              <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600 mb-4">
+              <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-orange-500 mb-4">
                 {result.title}
               </h3>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -846,9 +874,9 @@ const NobleLiving = () => {
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 my-12">
-              <div className="bg-purple-50 rounded-xl p-6">
+              <div className="bg-emerald-50 rounded-xl p-6">
                 <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
-                  <Star className="w-5 h-5 text-purple-600 mr-2" />
+                  <Star className="w-5 h-5 text-emerald-600 mr-2" />
                   Your Core Strengths
                 </h4>
                 <ul className="space-y-2">
@@ -861,15 +889,15 @@ const NobleLiving = () => {
                 </ul>
               </div>
 
-              <div className="bg-blue-50 rounded-xl p-6">
+              <div className="bg-orange-50 rounded-xl p-6">
                 <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
-                  <Target className="w-5 h-5 text-blue-600 mr-2" />
+                  <Target className="w-5 h-5 text-orange-500 mr-2" />
                   Next Steps
                 </h4>
                 <ul className="space-y-2">
                   {result.nextSteps.map((step, index) => (
                     <li key={index} className="flex items-center text-gray-700">
-                      <ArrowRight className="w-5 h-5 text-blue-600 mr-2 flex-shrink-0" />
+                      <ArrowRight className="w-5 h-5 text-orange-500 mr-2 flex-shrink-0" />
                       {step}
                     </li>
                   ))}
@@ -877,16 +905,16 @@ const NobleLiving = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl p-8 text-white text-center mb-8">
+            <div className="bg-gradient-to-r from-emerald-600 to-orange-500 rounded-xl p-8 text-white text-center mb-8">
               <h4 className="text-2xl font-bold mb-3">
                 Ready to Take Action?
               </h4>
-              <p className="text-purple-100 mb-6">
+              <p className="text-emerald-100 mb-6">
                 Chat with your personal assistant for guidance and accountability!
               </p>
               <button
                 onClick={startChat}
-                className="px-8 py-3 bg-white text-purple-600 rounded-lg font-semibold hover:bg-purple-50 transition-colors inline-flex items-center"
+                className="px-8 py-3 bg-white text-emerald-600 rounded-lg font-semibold hover:bg-emerald-50 transition-colors inline-flex items-center"
               >
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Let's Chat!
@@ -896,7 +924,7 @@ const NobleLiving = () => {
             <div className="mt-8 text-center space-y-4">
               <button
                 onClick={resetAssessment}
-                className="text-purple-600 hover:text-purple-700 font-medium mr-6"
+                className="text-emerald-600 hover:text-emerald-700 font-medium mr-6"
               >
                 Retake Assessment
               </button>
@@ -922,16 +950,16 @@ const NobleLiving = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <button
           onClick={() => navigateTo('home')}
-          className="mb-6 text-purple-600 hover:text-purple-700 font-medium flex items-center"
+          className="mb-6 text-emerald-600 hover:text-emerald-700 font-medium flex items-center"
         >
           ← Back to Home
         </button>
         
         <h1 className="text-4xl font-bold text-gray-900 mb-8 text-center">Careers at Noble Living</h1>
         
-        <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl p-12 text-center">
+        <div className="bg-gradient-to-br from-emerald-50 to-orange-50 rounded-2xl p-12 text-center">
           <div className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-full mb-6">
-            <Users className="w-10 h-10 text-purple-600" />
+            <Users className="w-10 h-10 text-emerald-600" />
           </div>
           <h2 className="text-2xl font-bold text-gray-900 mb-4">No Positions Available Currently</h2>
           <p className="text-lg text-gray-600 mb-8">
@@ -939,7 +967,7 @@ const NobleLiving = () => {
           </p>
           <p className="text-gray-600">
             Interested in joining our mission? Send your resume to{' '}
-            <a href="mailto:careers@nobleliving.com" className="text-purple-600 hover:text-purple-700 font-semibold">
+            <a href="mailto:careers@nobleliving.com" className="text-emerald-600 hover:text-emerald-700 font-semibold">
               careers@nobleliving.com
             </a>
           </p>
@@ -949,17 +977,17 @@ const NobleLiving = () => {
   );
 
   const CommunityPage = () => (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50 py-20">
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-orange-50 py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <button
           onClick={() => navigateTo('home')}
-          className="mb-6 text-purple-600 hover:text-purple-700 font-medium flex items-center"
+          className="mb-6 text-emerald-600 hover:text-emerald-700 font-medium flex items-center"
         >
           ← Back to Home
         </button>
         
         <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full mb-6">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-emerald-600 to-orange-500 rounded-full mb-6">
             <Users className="w-10 h-10 text-white" />
           </div>
           <h1 className="text-5xl font-bold text-gray-900 mb-4">Community Coming Soon!</h1>
@@ -995,10 +1023,10 @@ const NobleLiving = () => {
           </div>
         </div>
 
-        <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl shadow-xl p-8 md:p-12 text-white text-center">
+        <div className="bg-gradient-to-r from-emerald-600 to-orange-500 rounded-2xl shadow-xl p-8 md:p-12 text-white text-center">
           <Award className="w-16 h-16 mx-auto mb-6" />
           <h2 className="text-3xl font-bold mb-4">Be a Founding Member!</h2>
-          <p className="text-xl text-purple-100 mb-8">
+          <p className="text-xl text-emerald-100 mb-8">
             Get notified when we launch and receive your exclusive <strong>Founders Badge</strong>!
           </p>
           
@@ -1039,7 +1067,7 @@ const NobleLiving = () => {
                 Join Waitlist
               </button>
             </form>
-            <p className="text-purple-100 text-sm mt-4">
+            <p className="text-emerald-100 text-sm mt-4">
               No spam. Just a heads up when we launch!
             </p>
           </div>
@@ -1064,18 +1092,18 @@ const NobleLiving = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center cursor-pointer" onClick={() => navigateTo('home')}>
-              <Heart className="w-8 h-8 text-purple-600" />
+              <Heart className="w-8 h-8 text-emerald-600" />
               <span className="ml-2 text-2xl font-bold text-gray-900">Noble Living</span>
             </div>
             
             <div className="hidden md:flex items-center space-x-8">
-              <button onClick={() => navigateTo('home')} className="text-gray-700 hover:text-purple-600 font-medium">Home</button>
-              <button onClick={() => navigateTo('about')} className="text-gray-700 hover:text-purple-600 font-medium">About</button>
-              <a href="#resources" className="text-gray-700 hover:text-purple-600 font-medium">Resources</a>
-              <button onClick={() => navigateTo('packages')} className="text-gray-700 hover:text-purple-600 font-medium">Packages</button>
+              <button onClick={() => navigateTo('home')} className="text-gray-700 hover:text-emerald-600 font-medium">Home</button>
+              <button onClick={() => navigateTo('about')} className="text-gray-700 hover:text-emerald-600 font-medium">About</button>
+              <a href="#resources" className="text-gray-700 hover:text-emerald-600 font-medium">Resources</a>
+              <button onClick={() => navigateTo('packages')} className="text-gray-700 hover:text-emerald-600 font-medium">Packages</button>
               <button
                 onClick={() => setShowAssessment(true)}
-                className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg transition-shadow"
+                className="bg-gradient-to-r from-emerald-600 to-orange-500 text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg transition-shadow"
               >
                 Start Assessment
               </button>
@@ -1093,16 +1121,16 @@ const NobleLiving = () => {
         {mobileMenuOpen && (
           <div className="md:hidden bg-white border-t border-gray-200">
             <div className="px-4 py-4 space-y-3">
-              <button onClick={() => navigateTo('home')} className="block w-full text-left text-gray-700 hover:text-purple-600 font-medium">Home</button>
-              <button onClick={() => navigateTo('about')} className="block w-full text-left text-gray-700 hover:text-purple-600 font-medium">About</button>
-              <a href="#resources" className="block text-gray-700 hover:text-purple-600 font-medium">Resources</a>
-              <button onClick={() => navigateTo('packages')} className="block w-full text-left text-gray-700 hover:text-purple-600 font-medium">Packages</button>
+              <button onClick={() => navigateTo('home')} className="block w-full text-left text-gray-700 hover:text-emerald-600 font-medium">Home</button>
+              <button onClick={() => navigateTo('about')} className="block w-full text-left text-gray-700 hover:text-emerald-600 font-medium">About</button>
+              <a href="#resources" className="block text-gray-700 hover:text-emerald-600 font-medium">Resources</a>
+              <button onClick={() => navigateTo('packages')} className="block w-full text-left text-gray-700 hover:text-emerald-600 font-medium">Packages</button>
               <button
                 onClick={() => {
                   setShowAssessment(true);
                   setMobileMenuOpen(false);
                 }}
-                className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-2 rounded-lg font-semibold"
+                className="w-full bg-gradient-to-r from-emerald-600 to-orange-500 text-white px-6 py-2 rounded-lg font-semibold"
               >
                 Start Assessment
               </button>
@@ -1112,15 +1140,15 @@ const NobleLiving = () => {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="bg-gradient-to-br from-purple-50 via-white to-blue-50 py-20">
+      <section id="home" className="bg-gradient-to-br from-emerald-50 via-white to-orange-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               {/* HeyGen Video Placeholder */}
               <div className="mb-8 bg-white rounded-2xl p-6 shadow-lg">
-                <div className="aspect-video bg-gradient-to-br from-purple-100 to-blue-100 rounded-lg flex items-center justify-center">
+                <div className="aspect-video bg-gradient-to-br from-emerald-100 to-orange-100 rounded-lg flex items-center justify-center">
                   <div className="text-center">
-                    <Play className="w-16 h-16 text-purple-600 mx-auto mb-4" />
+                    <Play className="w-16 h-16 text-emerald-600 mx-auto mb-4" />
                     <p className="text-gray-700 font-medium">Welcome Video (HeyGen)</p>
                     <p className="text-sm text-gray-600 mt-2">Add your HeyGen embed code here</p>
                   </div>
@@ -1128,7 +1156,7 @@ const NobleLiving = () => {
               </div>
 
               <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-                Discover Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">True Purpose</span>
+                Discover Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-orange-500">True Purpose</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8">
                 Join thousands who have found clarity, direction, and meaning through our proven purpose discovery system - with personal support every step of the way.
@@ -1136,14 +1164,14 @@ const NobleLiving = () => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={() => setShowAssessment(true)}
-                  className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-xl transition-shadow flex items-center justify-center"
+                  className="bg-gradient-to-r from-emerald-600 to-orange-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-xl transition-shadow flex items-center justify-center"
                 >
                   Take Free Assessment
                   <ChevronRight className="w-5 h-5 ml-2" />
                 </button>
                 <button
                   onClick={startChat}
-                  className="border-2 border-purple-600 text-purple-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-purple-50 transition-colors flex items-center justify-center"
+                  className="border-2 border-emerald-600 text-emerald-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-emerald-50 transition-colors flex items-center justify-center"
                 >
                   <MessageCircle className="w-5 h-5 mr-2" />
                   Chat Now
@@ -1161,10 +1189,10 @@ const NobleLiving = () => {
               </div>
             </div>
             <div className="relative">
-              <div className="bg-gradient-to-br from-purple-600 to-blue-600 rounded-3xl p-8 text-white shadow-2xl">
+              <div className="bg-gradient-to-br from-emerald-600 to-orange-500 rounded-3xl p-8 text-white shadow-2xl">
                 <Compass className="w-16 h-16 mb-6" />
                 <h3 className="text-2xl font-bold mb-4">Find Your Path</h3>
-                <p className="text-purple-100 mb-6">
+                <p className="text-emerald-100 mb-6">
                   Our smart assessment and personal assistant help you uncover your unique strengths, values, and calling in just 5 minutes.
                 </p>
                 <div className="space-y-3">
@@ -1204,8 +1232,8 @@ const NobleLiving = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-purple-50 rounded-2xl p-8 text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-600 rounded-full mb-6">
+            <div className="bg-emerald-50 rounded-2xl p-8 text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-emerald-600 rounded-full mb-6">
                 <Compass className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">1. Discover</h3>
@@ -1214,8 +1242,8 @@ const NobleLiving = () => {
               </p>
             </div>
 
-            <div className="bg-blue-50 rounded-2xl p-8 text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-full mb-6">
+            <div className="bg-orange-50 rounded-2xl p-8 text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-orange-500 rounded-full mb-6">
                 <MessageCircle className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">2. Chat & Plan</h3>
@@ -1238,7 +1266,7 @@ const NobleLiving = () => {
       </section>
 
       {/* Resources Section */}
-      <section id="resources" className="py-20 bg-gradient-to-br from-purple-50 via-white to-blue-50">
+      <section id="resources" className="py-20 bg-gradient-to-br from-emerald-50 via-white to-orange-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -1275,7 +1303,7 @@ const NobleLiving = () => {
                   </div>
                   <button 
                     onClick={() => alert('Worksheet download coming soon! Enter your email above to get notified.')}
-                    className="w-full flex items-center justify-center text-purple-600 font-semibold hover:text-purple-700 border-2 border-purple-600 rounded-lg py-2 hover:bg-purple-50 transition-colors"
+                    className="w-full flex items-center justify-center text-emerald-600 font-semibold hover:text-emerald-700 border-2 border-emerald-600 rounded-lg py-2 hover:bg-emerald-50 transition-colors"
                   >
                     <Download className="w-5 h-5 mr-2" />
                     Download Free PDF
@@ -1288,31 +1316,31 @@ const NobleLiving = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-purple-600 to-blue-600">
+      <section className="py-20 bg-gradient-to-r from-emerald-600 to-orange-500">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
             Ready to Discover Your Purpose?
           </h2>
-          <p className="text-xl text-purple-100 mb-8">
+          <p className="text-xl text-emerald-100 mb-8">
             Join thousands who have found clarity and direction in their lives. Start your journey today - completely free.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => setShowAssessment(true)}
-              className="px-8 py-4 bg-white text-purple-600 rounded-lg font-semibold hover:bg-purple-50 transition-colors inline-flex items-center justify-center"
+              className="px-8 py-4 bg-white text-emerald-600 rounded-lg font-semibold hover:bg-emerald-50 transition-colors inline-flex items-center justify-center"
             >
               Take Free Assessment
               <ChevronRight className="w-5 h-5 ml-2" />
             </button>
             <button
               onClick={startChat}
-              className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-purple-600 transition-colors inline-flex items-center justify-center"
+              className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-emerald-600 transition-colors inline-flex items-center justify-center"
             >
               <MessageCircle className="w-5 h-5 mr-2" />
               Chat with Your Assistant
             </button>
           </div>
-          <p className="text-purple-100 text-sm mt-6">
+          <p className="text-emerald-100 text-sm mt-6">
             ✓ Free forever · ✓ No credit card required · ✓ Instant access
           </p>
         </div>
@@ -1324,7 +1352,7 @@ const NobleLiving = () => {
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center mb-4">
-                <Heart className="w-8 h-8 text-purple-400" />
+                <Heart className="w-8 h-8 text-emerald-400" />
                 <span className="ml-2 text-xl font-bold">Noble Living</span>
               </div>
               <p className="text-gray-400">
@@ -1366,7 +1394,7 @@ const NobleLiving = () => {
       {!showChat && (
         <button
           onClick={startChat}
-          className="fixed bottom-6 right-6 bg-gradient-to-r from-purple-600 to-blue-600 text-white p-4 rounded-full shadow-2xl hover:shadow-3xl transition-all hover:scale-110 z-50"
+          className="fixed bottom-6 right-6 bg-gradient-to-r from-emerald-600 to-orange-500 text-white p-4 rounded-full shadow-2xl hover:shadow-3xl transition-all hover:scale-110 z-50"
           title="Chat with your assistant"
         >
           <MessageCircle className="w-6 h-6" />
@@ -1382,14 +1410,14 @@ const NobleLiving = () => {
       {showChat && (
         <div className="fixed bottom-6 right-6 w-96 h-[600px] bg-white rounded-2xl shadow-2xl flex flex-col z-50 border border-gray-200">
           {/* Chat Header */}
-          <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-4 rounded-t-2xl flex items-center justify-between">
+          <div className="bg-gradient-to-r from-emerald-600 to-orange-500 text-white p-4 rounded-t-2xl flex items-center justify-between">
             <div className="flex items-center">
               <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-3">
-                <Sparkles className="w-6 h-6 text-purple-600" />
+                <Sparkles className="w-6 h-6 text-emerald-600" />
               </div>
               <div>
                 <h3 className="font-bold">Your Assistant</h3>
-                <p className="text-xs text-purple-100">
+                <p className="text-xs text-emerald-100">
                   {isFreeTier ? `${messageCount}/${MESSAGE_LIMIT} messages today` : 'Unlimited ♾️'}
                 </p>
               </div>
@@ -1405,7 +1433,7 @@ const NobleLiving = () => {
               <div key={index} className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div className={`max-w-[80%] p-3 rounded-2xl ${
                   message.sender === 'user' 
-                    ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white' 
+                    ? 'bg-gradient-to-r from-emerald-600 to-orange-500 text-white' 
                     : 'bg-gray-100 text-gray-900'
                 }`}>
                   <p className="text-sm">{message.text}</p>
@@ -1433,12 +1461,12 @@ const NobleLiving = () => {
                 value={chatInput}
                 onChange={(e) => setChatInput(e.target.value)}
                 placeholder="Type your message..."
-                className="flex-1 px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-purple-600"
+                className="flex-1 px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-emerald-600"
                 disabled={isFreeTier && messageCount >= MESSAGE_LIMIT}
               />
               <button
                 type="submit"
-                className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-2 rounded-full hover:shadow-lg transition-shadow disabled:opacity-50"
+                className="bg-gradient-to-r from-emerald-600 to-orange-500 text-white p-2 rounded-full hover:shadow-lg transition-shadow disabled:opacity-50"
                 disabled={isFreeTier && messageCount >= MESSAGE_LIMIT}
               >
                 <Send className="w-5 h-5" />
